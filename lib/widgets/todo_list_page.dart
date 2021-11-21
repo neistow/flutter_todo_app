@@ -20,21 +20,23 @@ class _ToDoListPageState extends State<ToDoListPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('ToDo List')),
-      body: Consumer<ToDoStore>(
-        builder: (ctx, store, child) => store.loading
+    return Consumer<ToDoStore>(
+      builder: (ctx, store, child) => Scaffold(
+        appBar: AppBar(title: const Text('ToDo List')),
+        body: store.loading
             ? const Center(child: CircularProgressIndicator())
             : ToDoList(toDos: store.toDos),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (ctx) => const CreateToDoPage()),
-          );
-        },
+        floatingActionButton: store.loading
+            ? null
+            : FloatingActionButton(
+                child: const Icon(Icons.add),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (ctx) => const CreateToDoPage()),
+                  );
+                },
+              ),
       ),
     );
   }
