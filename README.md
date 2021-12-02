@@ -2,6 +2,10 @@
 
 Yet another todo app
 
+## Demo
+
+![ORpPuS1UCO](https://user-images.githubusercontent.com/55974615/144429471-c0823c00-32c1-4130-9890-087167264686.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
